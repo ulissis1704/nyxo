@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Star, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 
 export default function Pricing() {
   const ref = useRef(null);
@@ -42,7 +42,7 @@ export default function Pricing() {
         'Maintenance 3 mois incluse',
         'Livraison à partir de 4 semaines'
       ],
-      popular: true,
+      popular: false,
       color: 'from-purple-500 to-pink-500'
     },
     {
@@ -138,21 +138,8 @@ export default function Pricing() {
                 scale: 1.02,
                 boxShadow: "0 25px 50px rgba(59, 130, 246, 0.2)"
               }}
-              className={`group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 hover:from-white/10 hover:to-white/15 transition-all duration-700 cursor-pointer border-2 ${
-                plan.popular 
-                  ? 'border-blue-400/50 shadow-2xl shadow-blue-500/20' 
-                  : 'border-white/20 hover:border-blue-400/50'
-              } overflow-hidden`}
+              className="group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 hover:from-white/10 hover:to-white/15 transition-all duration-700 cursor-pointer border-2 border-white/20 hover:border-blue-400/50 overflow-hidden"
             >
-              {/* Badge populaire */}
-              {plan.popular && (
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center space-x-2 shadow-lg">
-                    <Star className="w-4 h-4" />
-                    <span>Plus populaire</span>
-                  </div>
-                </div>
-              )}
 
               {/* Effet de fond animé */}
               <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}></div>
@@ -190,18 +177,15 @@ export default function Pricing() {
                 </div>
 
                 {/* Bouton CTA */}
-                <motion.button
+                <motion.a
+                  href="/quote"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 shadow-lg hover:shadow-xl'
-                      : 'bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-blue-400/50'
-                  }`}
+                  className="w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700 shadow-lg hover:shadow-xl"
                 >
-                  <span>Contactez-moi</span>
+                  <span>Demander un devis</span>
                   <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           ))}
