@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="accueil" className="min-h-screen bg-black relative overflow-hidden pt-20">
+    <section id="accueil" className="min-h-screen bg-black relative overflow-hidden pt-24">
       {/* Fond avec grille animée */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>

@@ -43,7 +43,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="w-16 h-16 md:w-40 md:h-40 relative">
+            <div className="w-40 h-40 relative">
               <Image 
                 src="/logo.png" 
                 alt="NyxoSolution Logo" 
